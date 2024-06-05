@@ -1,0 +1,40 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+            <template lwc:if={isName}>
+    
+                <lightning-input
+                    placeholder="Search food or chef..."
+                    type="search"
+                    onchange={changeHandler}>
+                </lightning-input>
+    
+                <div class="slds-var-m-around_medium">
+                    <template lwc:if={food}>
+                        <template for:each={food} for:item="fd">
+                            <div key={fd.Id} class="slds-box slds-var-m-bottom_small" style="background-color: rgb(255, 217, 80);">
+                                <strong>{fd.Name}</strong><br/>
+                                <strong>Ingredients: </strong><em>{fd.Ingredients__c}</em><br/>
+                                <strong>Price: </strong><em>{fd.Price__c}</em><br/>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+    
+                <div class="slds-var-m-around_medium">
+                    <template lwc:if={chef}>
+                        <template for:each={food} for:item="cf">
+                            <div key={cf.Id} class="slds-box slds-var-m-bottom_small">
+                                <strong>{cf.Name__c}</strong><br/>
+                                <strong>Rate: </strong><em>{cf.AvgRate__c}</em><br/>
+                                <strong>Social Media: </strong><em>{cf.Social_Media_Links__c}</em><br/>
+                                <strong>Pickup/Delivery Preference: </strong><em>{cf.Pickup_Delivery_Preference__c}</em><br/>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+    
+            </template>
+        </div>
+    </lightning-card>
+</template>
