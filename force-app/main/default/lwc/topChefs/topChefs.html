@@ -2,7 +2,7 @@
     <template if:true={chefs}>
         <div class="chef-cards-grid">
             <template for:each={chefs} for:item="chefWrapper" for:index="index">
-                <div key={chefWrapper.chef.Id} class="slds-card slds-m-around_medium chef-card">
+                <div key={chefWrapper.chef.Id} class="slds-card slds-m-around_medium chef-card" data-id={chefWrapper.chef.Id} onclick={navigateToChef}>
                     <!-- Food Image Container -->
                     <div class="food-image-container">
                         <template if:true={chefWrapper.chefImageUrl}>

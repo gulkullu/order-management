@@ -1,15 +1,14 @@
 <template>
-    <lightning-card title="Chef Registration" icon-name="custom:custom63">
-        <div class="slds-p-around_medium">
-            <lightning-button label="Become a Chef" onclick={handleButtonClick} class="slds-m-bottom_medium"></lightning-button>
-        </div>
-        <div class="footer-buttons">
-            <a href="https://changeforcefoundation--gr3t2s1.sandbox.my.site.com/home2home/s/Become A Chef__c" class="footer-button">Become A Chef</a>
-         </div>
-        <template if:true={showFlow}>
+    <template if:true={showFoodFlow}>
+        <lightning-card title="Chef Registration">
             <div class="custom-flow-container">
-                <lightning-flow flow-api-name="Chef_Login_Screen" onstatuschange={handleStatusChange}></lightning-flow>
+                <lightning-flow flow-api-name="Chef_Login_Screen" onstatuschange={handleFoodFlowStatusChange}></lightning-flow>
             </div>
-        </template>
-    </lightning-card>
+        </lightning-card>
+    </template>
+    <template if:false={showFoodFlow}>
+        <div class="button-container">
+            <button class="join-us-button" onclick={handleButtonClick}>Join Us</button>
+        </div>
+    </template>
 </template>
